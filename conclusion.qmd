@@ -1,0 +1,23 @@
+---
+title: "CLT Data Conclusion"
+format: html
+editor: visual
+---
+
+## Data summary
+
+| Population | Smallest ($n$) judged normal | Skewness at chosen ($n$) | Excess Kurtosis at chosen ($n$) | Limiting factor for normality |
+|:---|:--:|:--:|:--:|:---|
+| **Standard Normal** | $n = 1$ | $0.002$ | $0.005$ | None; population means are immediately normal. |
+| **Six-Sided Die** | $n = 8$ | $0.001$ | $0.135$ | Kurtosis |
+| **Exponential** | Very large | $0.075$ | $0.008$ | Skew |
+| **Binomial** | $n = 200$ to $1000$ | $0.075$ | $0.004$ | Skew |
+| **Cauchy** | none | N/A | N/A | Everything |
+
+## Overall Conclusions
+
+There are two main conclusions to draw. The first one is that there is no general n where you can say that the sample means approach normality, the value of n varies greatly depending on the distributions. The second, and arguably more important conclusion, is that monte carlo simulations have serious limitations. There is simply no getting around the fact that they generate noise, and sometimes that noise makes it impossible to tease out any trend. This is exactly what happened in the exponential and binomial distributions.
+
+As one final note, I would also like to note t hat there was no population for whom the limiting factor was the R\^2 test. Fundamentally, this means I was really only testing for skewness and kurtosis.
+
+------------------------------------------------------------------------

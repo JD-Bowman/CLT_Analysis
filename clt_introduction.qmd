@@ -1,0 +1,33 @@
+---
+title: "CLT Introduction and Methodology"
+format: html
+editor: visual
+---
+
+## Introduction
+
+The Central Limit Theorem (CLT) states that the distribution of sample means of any distribution approaches a normal distribution, even if the samples being averaged are not normal themselves. In this project, I examine the behavior of the distribution of sample means of various other distribution types, including exponential, poisson, and binomial, and determine how large the individual samples need to be before their means begin to be distributed normally.
+
+## Methodology
+
+My approach has four parts: 1. R\^2 correlation of a Q-Q plot. Must be greater than 0.98. 2. Low amounts of skewness. \|Skewness\| \< 0.075 3. Low amounts of excess kurtosis. \|Excess kurtosis\| \< 0.15 4. Final visual check. Confirm that the distribution is not multimodal.
+
+For each distribution, I will check n = 2, 5, 10, 30, and 100. From there, I will run further tests in order to determine the exact value of n if needed.
+
+### R\^2 correlation
+
+The first test is the R\^2 correlation of the Q-Q plot. Because Q-Q plots are definitionally linear relationships, I can use the R\^2 calculate the strength of the linear relationship. Note that since both sets are ordered, they cannot have a negative relationship. Therefore R is definitionally positive, so R\^2 cannot have false positives caused by R being close to -1.
+
+### Skewness
+
+There are a couple of things that do not cause the R\^2 test to fail despite indicating non-normality, so I will test for them separately. One of these is skewness, which I will determine to be not normal if it is over 0.075 away from zero. This number is roughly three times the standard error for skewness with 10,000 repetitions.
+
+### Kurtosis
+
+If instead of being off center, the curve has tails that are the wrong size, the kurtosis will be incorrect. If the excess kurtosis is over 0.15 away zero, then I will determine it to be not normal. Like skewness, this number is roughly three times the standard error for kurtosis with 10,000 repetitions.
+
+### Final visual check
+
+This is a simple sanity check to make sure the data looks like it is normal, instead of multimodal.
+
+------------------------------------------------------------------------
